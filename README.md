@@ -1,4 +1,4 @@
-# Webpack 5 Bi-Directional Micro frontend, Relay hooks, React Suspense
+# Webpack 5 Microfrontend, Relay hooks, React Suspense
 
 <img src='https://github.com/hanford/bi-directional-mfe/blob/master/example.gif' alt='preview gif' width='600px' />
 
