@@ -1,0 +1,48 @@
+type Query {
+  viewer(after: String, before: String, first: Int, last: Int): Viewer!
+  node(id: ID!): Node
+}
+
+type Viewer implements Node {
+  id: ID!
+  user: User!
+  allFeedPosts(
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): FeedPostConnection!
+}
+
+interface Node {
+  id: ID!
+}
+
+type FeedPostConnection {
+  pageInfo: PageInfo!
+  edges: [FeedPostEdge]
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type FeedPostEdge {
+  node: FeedPost!
+  cursor: String!
+}
+
+type FeedPost implements Node {
+  content: String!
+  id: ID!
+  title: String!
+}
+
+type User implements Node {
+  id: ID!
+  name: String!
+  title: String!
+}

@@ -1,0 +1,17 @@
+{
+  "name": "bi-directional-mfe",
+  "version": "0.0.0",
+  "description": "Examples showcasing Webpack 5's Module Federation, Relay hooks and React suspense",
+  "repository": "https://github.com/hanford/bi-directional-mfe.git",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.16.4"
+  },
+  "scripts": {
+    "start": "lerna exec yarn start"
+  }
+}
