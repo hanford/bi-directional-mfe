@@ -3,7 +3,7 @@ import { useLazyLoadQuery, graphql } from "react-relay/hooks";
 
 import { Provider } from "./RelayEnvironment";
 
-const Modal = React.lazy(() => import("app1/Modal"));
+const Modal = React.lazy(() => import("app3/Modal"));
 
 function Feed() {
   const [showRemoteModal, setShowRemoteModal] = React.useState(false);
@@ -43,7 +43,7 @@ function Feed() {
         position: "relative"
       }}
     >
-      {connection.map(({ title, content }) => (
+      {connection.map(({ title, content }, index) => (
         <div
           key={title}
           role="button"
@@ -54,7 +54,8 @@ function Feed() {
             width: "100%",
             marginBottom: 8,
             paddingBottom: 8,
-            borderBottom: "1px solid rgba(0,0,0,0.1)"
+            borderBottom:
+              connection.length - 1 !== index ? "1px solid rgba(0,0,0,0.1)" : ""
           }}
         >
           <div>{title}</div>
@@ -66,7 +67,7 @@ function Feed() {
       </div>
 
       {showRemoteModal && (
-        <Suspense fallback="Loading Modal">
+        <Suspense fallback="Loading modal...">
           <Modal>
             <div
               style={{
@@ -75,7 +76,7 @@ function Feed() {
                 justifyContent: "space-between"
               }}
             >
-              <div style={{ flex: 1 }}>App1/Modal</div>
+              <div style={{ flex: 1 }}>App3/Modal</div>
 
               <button onClick={() => setShowRemoteModal(s => !s)}>
                 Dismiss modal

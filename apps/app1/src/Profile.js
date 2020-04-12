@@ -1,6 +1,8 @@
 import React from "react";
 import { useLazyLoadQuery, graphql } from "react-relay/hooks";
 
+const Modal = React.lazy(() => import("app3/Modal"));
+
 function Profile() {
   const data = useLazyLoadQuery(
     graphql`

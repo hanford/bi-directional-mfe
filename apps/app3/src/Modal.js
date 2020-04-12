@@ -19,6 +19,8 @@ export default function Modal({ children }) {
         style={{
           padding: 16,
           backgroundColor: "lavender",
+          borderRadius: 6,
+          boxShadow: "0 5px 20px rgba(0,0,0,0.3)",
           minHeight: 300,
           minWidth: 300
         }}
