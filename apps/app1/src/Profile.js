@@ -1,23 +1,28 @@
 import React from "react";
-import { useLazyLoadQuery, graphql } from "react-relay/hooks";
+import { preloadQuery, usePreloadedQuery, graphql } from "react-relay/hooks";
+
+import Environment from "./RelayEnvironment";
 
 const Modal = React.lazy(() => import("app3/Modal"));
 
-function Profile() {
-  const data = useLazyLoadQuery(
-    graphql`
-      query ProfileQuery {
-        viewer {
-          user {
-            name
-            title
-          }
-        }
+const query = graphql`
+  query ProfileQuery {
+    viewer {
+      user {
+        name
       }
-    `,
-    {},
-    { fetchPolicy: "store-or-network" }
-  );
+    }
+  }
+`;
+
+const variables = {};
+
+const result = preloadQuery(Environment, query, variables, {
+  fetchPolicy: "store-or-network"
+});
+
+function Profile() {
+  const data = usePreloadedQuery(query, result);
 
   return (
     <div

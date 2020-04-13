@@ -7,13 +7,21 @@ function App() {
 
   return (
     <div>
-      <div>App 3</div>
+      <h1>App 3</h1>
+
       <button onClick={() => setReveal(r => !r)}>Reveal modal</button>
 
       {reveal && (
         <Modal>
-          <div>
-            Modal
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%"
+            }}
+          >
+            <div>Modal</div>
             <button onClick={() => setReveal(r => !r)}>Dismiss</button>
           </div>
         </Modal>

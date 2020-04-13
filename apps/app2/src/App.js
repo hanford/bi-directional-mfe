@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+
 import Feed from "./Feed";
 
 const App = () => {

@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 
 import Profile from "./Profile";
 import { Provider } from "./RelayEnvironment";
+import ErrorBoundary from "./ErrorBoundary";
 
 const RemoteFeed = React.lazy(() => import("app2/Feed"));
 
@@ -14,30 +15,34 @@ function App() {
         alignItems: "center",
         flexDirection: "column",
         marginTop: 80,
-        fontFamily: "-apple-system, BlinkMacSystemFont",
+        fontFamily: "-apple-system, BlinkMacSystemFont"
       }}
     >
-      <Suspense
-        fallback={
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-              minHeight: 200,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            Loading...
-          </div>
-        }
-      >
-        <Profile />
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div
+              style={{
+                display: "flex",
+                width: "100%",
+                minHeight: 200,
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              Loading...
+            </div>
+          }
+        >
+          <Profile />
 
-        <Suspense fallback="Loading Feed...">
-          <RemoteFeed />
+          <ErrorBoundary>
+            <Suspense fallback="Loading Feed...">
+              <RemoteFeed />
+            </Suspense>
+          </ErrorBoundary>
         </Suspense>
-      </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }
