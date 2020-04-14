@@ -1,9 +1,10 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const RemoteProfile = lazy(() => import("app1/Profile"));
 const RemoteFeed = lazy(() => import("app2/Feed"));
 const RemoteAbout = lazy(() => import("app5/About"));
+const RemoteRouter = lazy(() => import("app6/Router"));
 
 function App() {
   return (
@@ -35,6 +36,18 @@ function App() {
           >
             About
           </Link>
+          <Link
+            to="/tos"
+            style={{ padding: "8px 16px", textDecoration: "none" }}
+          >
+            Terms of service
+          </Link>
+          <Link
+            to="/privacy"
+            style={{ padding: "8px 16px", textDecoration: "none" }}
+          >
+            Privacy
+          </Link>
         </nav>
         <div
           style={{
@@ -50,9 +63,14 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/">
+
+            <Route path="/" exact>
               <Profile />
             </Route>
+
+            <Suspense fallback={"Loading remote routes..."}>
+              <RemoteRouter />
+            </Suspense>
           </Switch>
         </div>
       </div>
