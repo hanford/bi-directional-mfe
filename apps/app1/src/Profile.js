@@ -1,15 +1,14 @@
 import React from "react";
 import { preloadQuery, usePreloadedQuery, graphql } from "react-relay/hooks";
 
-import Environment from "./RelayEnvironment";
-
-const Modal = React.lazy(() => import("app3/Modal"));
+import Environment, { Provider } from "./RelayEnvironment";
 
 const query = graphql`
   query ProfileQuery {
     viewer {
       user {
         name
+        title
       }
     }
   }
@@ -60,4 +59,8 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default () => (
+  <Provider>
+    <Profile />
+  </Provider>
+);

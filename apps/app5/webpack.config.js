@@ -7,10 +7,10 @@ module.exports = {
   mode: "development",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    port: 3001
+    port: 3005
   },
   output: {
-    publicPath: "http://localhost:3001/"
+    publicPath: "http://localhost:3005/"
   },
   module: {
     rules: [
@@ -26,17 +26,16 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app1",
-      library: { type: "var", name: "app1" },
+      name: "app5",
+      library: { type: "var", name: "app5" },
       filename: "remoteEntry.js",
       remotes: {
-        app2: "app2",
-        app3: "app3"
+        app4: "app4"
       },
       exposes: {
-        Profile: "./src/Profile"
+        About: "./src/About"
       },
-      shared: ["react", "react-dom", "react-relay"]
+      shared: ["react", "react-dom"]
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html"

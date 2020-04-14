@@ -29,43 +29,47 @@ function Feed() {
   const connection = cleanConnection(data.viewer.allFeedPosts);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        flexDirection: "column",
-        width: 600,
-        maxWidth: "100%",
-        background: "bisque",
-        padding: 20,
-        borderRadius: 6,
-        position: "relative"
-      }}
-    >
-      {connection.map(({ title, content }, index) => (
-        <div
-          key={title}
-          role="button"
-          onClick={() => {
-            setShowRemoteModal(true);
-          }}
-          style={{
-            width: "100%",
-            marginBottom: 8,
-            paddingBottom: 8,
-            borderBottom:
-              connection.length - 1 !== index ? "1px solid rgba(0,0,0,0.1)" : ""
-          }}
-        >
-          <div>{title}</div>
-          <div>{content}</div>
+    <>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          flexDirection: "column",
+          width: 600,
+          maxWidth: "100%",
+          background: "bisque",
+          padding: 20,
+          borderRadius: 6,
+          position: "relative"
+        }}
+      >
+        {connection.map(({ title, content }, index) => (
+          <div
+            key={title}
+            role="button"
+            onClick={() => {
+              setShowRemoteModal(true);
+            }}
+            style={{
+              width: "100%",
+              marginBottom: 8,
+              paddingBottom: 8,
+              cursor: "pointer",
+              borderBottom:
+                connection.length - 1 !== index
+                  ? "1px solid rgba(0,0,0,0.1)"
+                  : ""
+            }}
+          >
+            <div>{title}</div>
+            <div>{content}</div>
+          </div>
+        ))}
+        <div style={{ position: "absolute", bottom: 8, right: 8 }}>
+          App2/Feed.js
         </div>
-      ))}
-      <div style={{ position: "absolute", bottom: 8, right: 8 }}>
-        App2/Feed.js
       </div>
-
       {showRemoteModal && (
         <Suspense fallback="Loading modal...">
           <Modal>
@@ -85,7 +89,7 @@ function Feed() {
           </Modal>
         </Suspense>
       )}
-    </div>
+    </>
   );
 }
 

@@ -6,10 +6,33 @@ function App() {
   const [reveal, setReveal] = React.useState(false);
 
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        marginTop: 80,
+        fontFamily: "-apple-system, BlinkMacSystemFont"
+      }}
+    >
       <h1>App 3</h1>
 
-      <button onClick={() => setReveal(r => !r)}>Reveal modal</button>
+      <button
+        style={{
+          padding: "16px 24px",
+          backgroundColor: "#984cd2",
+          color: "white",
+          fontSize: 18,
+          borderRadius: 6,
+          border: 0,
+          cursor: "pointer",
+          outline: "none"
+        }}
+        onClick={() => setReveal(r => !r)}
+      >
+        Reveal modal
+      </button>
 
       {reveal && (
         <Modal>

@@ -1,0 +1,30 @@
+{
+  "name": "@bi-directional/app4",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-relay": "^9.0.0",
+    "graphql": "^15.0.0",
+    "html-webpack-plugin": "git://github.com/ScriptedAlchemy/html-webpack-plugin#master",
+    "relay-compiler": "^9.0.0",
+    "relay-config": "^9.0.0",
+    "serve": "^11.3.0",
+    "webpack": "git://github.com/webpack/webpack.git#dev-1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "scripts": {
+    "start": "yarn relay && webpack-dev-server",
+    "build": "webpack --mode production",
+    "serve": "serve dist -p 3001",
+    "relay": "relay-compiler --schema ../server/schema.graphql --src ./src"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-relay": "0.0.0-experimental-8cc94ddc"
+  }
+}

@@ -4,9 +4,10 @@
 
 This example demos bi-directional hosts each with their own remote components. We're sharing data aware components that use react suspense and relay hooks.
 
-- `app1` consumes `app2` and `app3` exposed components.
-- `app2` exposes a `<Feed />` component.
+- `app1` exposes a `<Profile />` component.
+- `app2` exposes a `<Feed />` component, built with `Modal` from app3
 - `app3` exposes a `<Modal />` component.
+- `app4` consumes `app1`, `app2`, and `app5` exposed components.
 - `server` is a shimmed graphql server.
 
 # Running Demo

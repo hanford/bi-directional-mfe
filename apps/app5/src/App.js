@@ -1,6 +1,6 @@
-import React, { Suspense } from "react";
+import React from "react";
 
-import Feed from "./Feed";
+import About from "./About";
 
 const App = () => {
   return (
@@ -14,11 +14,9 @@ const App = () => {
         fontFamily: "-apple-system, BlinkMacSystemFont"
       }}
     >
-      <h1>App 2</h1>
+      <h1>App 5</h1>
 
-      <Suspense fallback="Loading feed">
-        <Feed />
-      </Suspense>
+      <About />
     </div>
   );
 };

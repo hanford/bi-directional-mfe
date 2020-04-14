@@ -35,12 +35,6 @@ function App() {
           }
         >
           <Profile />
-
-          <ErrorBoundary>
-            <Suspense fallback="Loading Feed...">
-              <RemoteFeed />
-            </Suspense>
-          </ErrorBoundary>
         </Suspense>
       </ErrorBoundary>
     </div>
