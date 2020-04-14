@@ -36,8 +36,8 @@ function Feed() {
           alignItems: "center",
           justifyContent: "flex-start",
           flexDirection: "column",
-          width: 600,
-          maxWidth: "100%",
+          width: "100%",
+          maxWidth: 600,
           background: "bisque",
           padding: 20,
           borderRadius: 6,
@@ -70,6 +70,7 @@ function Feed() {
           App2/Feed.js
         </div>
       </div>
+
       {showRemoteModal && (
         <Suspense fallback="Loading modal...">
           <Modal>
