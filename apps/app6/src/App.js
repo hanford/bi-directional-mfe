@@ -24,26 +24,28 @@ const App = () => {
             flexDirection: "row",
             display: "flex",
             alignItems: "center",
-            margin: "0 auto"
+            margin: "0 auto",
+            justifyContent: "space-between"
           }}
         >
-          <h1 style={{ marginRight: 8 }}>App 6</h1>
-          <Link
-            to="/privacy"
-            style={{
-              padding: "8px 16px",
-              textDecoration: "none",
-              marginRight: 8
-            }}
-          >
-            Privacy
-          </Link>
-          <Link
-            to="/tos"
-            style={{ padding: "8px 16px", textDecoration: "none" }}
-          >
-            Terms of service
-          </Link>
+          <h1>App 6</h1>
+          <div>
+            <Link
+              to="/privacy"
+              style={{
+                padding: "8px 16px",
+                textDecoration: "none"
+              }}
+            >
+              Privacy
+            </Link>
+            <Link
+              to="/tos"
+              style={{ padding: "8px 0px 16px 8px", textDecoration: "none" }}
+            >
+              Terms of service
+            </Link>
+          </div>
         </nav>
 
         <AppRouter />

@@ -4,8 +4,6 @@ import Profile from "./Profile";
 import { Provider } from "./RelayEnvironment";
 import ErrorBoundary from "./ErrorBoundary";
 
-const RemoteFeed = React.lazy(() => import("app2/Feed"));
-
 function App() {
   return (
     <div
